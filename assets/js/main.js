@@ -1,10 +1,17 @@
 AOS.init();
 
 const btn = document.querySelector("button.mobile-menu-button");
+const navItems = document.getElementsByClassName(".navitem");
 const menu = document.querySelector(".mobile-menu");
 
 btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
+});
+
+menu.addEventListener('click', function(event) {
+  if (event.target.tagName === 'A') {
+    menu.classList.toggle("hidden");
+  }
 });
 
 

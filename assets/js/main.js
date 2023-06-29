@@ -1,7 +1,15 @@
+//preloader  
+window.addEventListener('load', function() {
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('hide');
+});
+
+//Animate on scroll initialize
 AOS.init();
 
+//navbar menu visibility on small devices
+
 const btn = document.querySelector("button.mobile-menu-button");
-const navItems = document.getElementsByClassName(".navitem");
 const menu = document.querySelector(".mobile-menu");
 
 btn.addEventListener("click", () => {
@@ -14,6 +22,7 @@ menu.addEventListener('click', function(event) {
   }
 });
 
+//navbar sticky on scroll
 
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
@@ -25,4 +34,24 @@ window.addEventListener('scroll', function() {
       navbar.classList.remove('sticky');
     }
 });
-  
+
+//scroll to top btn
+
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    scrollToTopBtn.classList.add('show');
+  } else {
+    scrollToTopBtn.classList.remove('show');
+  }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+
